@@ -1,6 +1,7 @@
 FROM debian:stretch
 
 ARG plugins=http.cache,http.expires,http.git,http.hugo,http.realip
+ARG telemetry=on
 
 ENV HUGO_VERSION 0.52
 
@@ -17,7 +18,7 @@ RUN curl -sL -o /tmp/hugo.deb \
     hugo version
 
 RUN curl --silent --show-error --fail --location --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
-      "https://caddyserver.com/download/linux/amd64?plugins=${plugins}&license=personal&telemetry=off" \
+      "https://caddyserver.com/download/linux/amd64?plugins=${plugins}&license=personal&telemetry=${telemetry}" \
     | tar --no-same-owner -C /usr/bin/ -xz caddy && \
     chmod 0755 /usr/bin/caddy && \
     addgroup --system caddy && \
