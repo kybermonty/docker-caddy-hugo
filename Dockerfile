@@ -1,9 +1,9 @@
 FROM debian:stretch
 
-ARG plugins=http.cache,http.expires,http.git,http.hugo,http.realip
+ARG plugins=http.cache,http.expires,http.git,http.realip
 ARG telemetry=on
 
-ENV HUGO_VERSION 0.52
+ENV HUGO_VERSION 0.54.0
 
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit.deb
 
